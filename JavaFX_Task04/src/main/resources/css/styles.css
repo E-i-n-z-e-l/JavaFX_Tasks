@@ -1,0 +1,6 @@
+.container {
+    -fx-background-image: url("icons/flag.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+}
+
