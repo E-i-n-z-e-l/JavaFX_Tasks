@@ -38,12 +38,13 @@ public class Main extends Application {
 
         root.getChildren().addAll(button1, button2, button3, button4, button5);
 
-        Scene scene = new Scene(root, 1400, 900);
+        Scene scene = new Scene(root, 1300, 850);
         scene.getStylesheets().add(getClass().getResource("css/styles.css").toExternalForm());
 
 
         stage.setScene(scene);
         stage.setTitle("Пример Scene");
+        stage.setResizable(false); // Запрет на изменение размеров окна;
         stage.show();
     }
 
