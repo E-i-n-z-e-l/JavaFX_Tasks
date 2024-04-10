@@ -2,41 +2,69 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TabPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import Button.Button1Handler;
 import java.util.Objects;
+import Button.Button2Handler;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        HBox root = new HBox(); // Создаем контейнер;
+        GridPane root = new GridPane(); // Создаем контейнер;
         root.setPadding(new Insets(60, 50, 60, 50)); // Установка внутренних отступов
-        root.setSpacing(70); // Указываем расстояние между кнопками;
+        root.setHgap(100);
+        // root.setVgap(40); Вертикальное расстояние;
         root.getStyleClass().add("container");
 
         Button button1 = new Button("Кнопка 1"); // Редактируем кнопки;
-        button1.setPrefWidth(200);
-        button1.setPrefHeight(100);
+        button1.setPrefWidth(250);
+        button1.setPrefHeight(50);
 
+        Button2Handler button2Handler = new Button2Handler(stage);
         Button button2 = new Button("Кнопка 2");
-        button2.setPrefWidth(200);
-        button2.setPrefHeight(100);
+        button2.setOnAction(event -> {
+            stage.hide(); // Скрываем исходное окно
+            Stage newStage = new Stage();
+            newStage.initOwner(stage);
+            newStage.initModality(Modality.WINDOW_MODAL);
+
+            // Код для создания и настройки нового окна
+            // ...
+
+            newStage.showAndWait(); // Отображаем новое окно и ждем его закрытия
+            stage.show(); // После закрытия нового окна, снова отображаем исходное окно
+        });
+        button2.setPrefWidth(250);
+        button2.setPrefHeight(50);
 
         Button button3 = new Button("Кнопка 3");
-        button3.setPrefWidth(200);
-        button3.setPrefHeight(100);
+        button3.setPrefWidth(250);
+        button3.setPrefHeight(50);
 
         Button button4 = new Button("Кнопка 4");
-        button4.setPrefWidth(200);
-        button4.setPrefHeight(100);
+        button4.setPrefWidth(250);
+        button4.setPrefHeight(50);
 
         Button button5 = new Button("Кнопка 5");
-        button5.setPrefWidth(200);
-        button5.setPrefHeight(100);
+        button5.setPrefWidth(250);
+        button5.setPrefHeight(50);
 
-        root.getChildren().addAll(button1, button2, button3, button4, button5);
+        TabPane tabPane = new TabPane(); // Создаем TabPane
+        Button1Handler button1Handler = new Button1Handler(tabPane);
+        button1.setOnAction(button1Handler);
+
+        root.add(button1, 0, 0);
+        root.add(button2, 1, 0);
+        root.add(button3, 2, 0);
+        root.add(button4, 3, 0);
+        root.add(button5, 4, 0);
+        root.add(tabPane, 0, 1);
+
 
         Scene scene = new Scene(root, 1300, 850);
         scene.getStylesheets().add(getClass().getResource("css/styles.css").toExternalForm());
@@ -46,6 +74,8 @@ public class Main extends Application {
         stage.setTitle("Пример Scene");
         stage.setResizable(false); // Запрет на изменение размеров окна;
         stage.show();
+
+
     }
 
     public static void main(String[] args) {
