@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -21,28 +22,28 @@ public class Button2Handler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
+        primaryStage.setOpacity(0);
         Stage newStage = new Stage(); // Создаем новое окно
         newStage.initOwner(primaryStage); // Устанавливаем основное окно владельцем нового окна
         newStage.initModality(Modality.WINDOW_MODAL); // Устанавливаем режим модального окна (новое окно будет блокировать основное окно до закрытия)
 
         // Создаем контент нового окна
-        VBox contentPane = new VBox();
-        contentPane.setAlignment(Pos.CENTER);
-        contentPane.setSpacing(20);
-
-        Label label = new Label("Новое окно");
-        label.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        GridPane gridPane = new GridPane();
+        gridPane.setAlignment(Pos.CENTER);
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
 
         Button closeButton = new Button("Закрыть");
         closeButton.setOnAction(e -> {
             newStage.close();
+            primaryStage.setOpacity(1);
             primaryStage.show(); // Показываем исходное окно после закрытия нового окна
         });
 
-        contentPane.getChildren().addAll(label, closeButton);
+        gridPane.getChildren().addAll(closeButton);
 
         // Создаем сцену и устанавливаем контент в новое окно
-        Scene scene = new Scene(contentPane, primaryStage.getWidth(), primaryStage.getHeight());
+        Scene scene = new Scene(gridPane, primaryStage.getWidth(), primaryStage.getHeight());
         newStage.setScene(scene);
         newStage.setTitle("Новое окно");
 
