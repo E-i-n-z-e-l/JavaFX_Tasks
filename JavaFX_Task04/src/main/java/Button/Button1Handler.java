@@ -10,9 +10,11 @@ import tabs.NewTab;
 public class Button1Handler implements EventHandler<ActionEvent> {
     private boolean isTabCreated = false;
     private final TabPane tabPane;
+    private final NewTab newTab; // Добавляем ссылку на класс, создающий вкладки
 
-    public Button1Handler(TabPane tabPane) {
+    public Button1Handler(TabPane tabPane, NewTab newTab) {
         this.tabPane = tabPane;
+        this.newTab = newTab;
     }
 
     @Override
@@ -22,7 +24,13 @@ public class Button1Handler implements EventHandler<ActionEvent> {
             Tab newTab = NewTab.createNewTab();
             tabPane.getTabs().add(newTab);
             isTabCreated = true; // Устанавливаем флаг, что вкладка уже создана
+
+            // Добавляем слушатель событий для закрытия вкладки
+            newTab.setOnClosed(e -> {
+                isTabCreated = false; // Сбрасываем флаг, чтобы можно было создать новую вкладку
+            });
         }
+
     }
 }
 

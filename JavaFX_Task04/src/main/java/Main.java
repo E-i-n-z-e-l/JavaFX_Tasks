@@ -11,6 +11,7 @@ import Button.Button1Handler;
 import java.util.Objects;
 import Button.Button2Handler;
 import Button.Button3Handler;
+import tabs.NewTab;
 
 public class Main extends Application {
 
@@ -22,7 +23,12 @@ public class Main extends Application {
         // root.setVgap(40); Вертикальное расстояние;
         root.getStyleClass().add("container");
 
+
         Button button1 = new Button("Кнопка 1"); // Редактируем кнопки;
+        NewTab newTab = new NewTab();
+        TabPane tabPane = new TabPane(); // Создаем TabPane
+        Button1Handler button1Handler = new Button1Handler(tabPane, newTab);
+        button1.setOnAction(button1Handler);
         button1.setPrefWidth(250);
         button1.setPrefHeight(50);
 
@@ -45,10 +51,6 @@ public class Main extends Application {
         Button button5 = new Button("Кнопка 5");
         button5.setPrefWidth(250);
         button5.setPrefHeight(50);
-
-        TabPane tabPane = new TabPane(); // Создаем TabPane
-        Button1Handler button1Handler = new Button1Handler(tabPane);
-        button1.setOnAction(button1Handler);
 
         root.add(button1, 0, 0);
         root.add(button2, 1, 0);
