@@ -11,6 +11,7 @@ import Button.Button1Handler;
 import java.util.Objects;
 import Button.Button2Handler;
 import Button.Button3Handler;
+import Button.Button4Handler;
 import tabs.NewTab;
 
 public class Main extends Application {
@@ -44,7 +45,9 @@ public class Main extends Application {
         button3.setPrefWidth(250);
         button3.setPrefHeight(50);
 
+        Button4Handler button4Handler = new Button4Handler(stage);
         Button button4 = new Button("Кнопка 4");
+        button4.setOnAction(button4Handler);
         button4.setPrefWidth(250);
         button4.setPrefHeight(50);
 
