@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import Button.Button1Handler;
 import java.util.Objects;
 import Button.Button2Handler;
+import Button.Button3Handler;
 
 public class Main extends Application {
 
@@ -27,22 +28,13 @@ public class Main extends Application {
 
         Button2Handler button2Handler = new Button2Handler(stage);
         Button button2 = new Button("Кнопка 2");
-        button2.setOnAction(event -> {
-            stage.hide(); // Скрываем исходное окно
-            Stage newStage = new Stage();
-            newStage.initOwner(stage);
-            newStage.initModality(Modality.WINDOW_MODAL);
-
-            // Код для создания и настройки нового окна
-            // ...
-
-            newStage.showAndWait(); // Отображаем новое окно и ждем его закрытия
-            stage.show(); // После закрытия нового окна, снова отображаем исходное окно
-        });
+        button2.setOnAction(button2Handler);
         button2.setPrefWidth(250);
         button2.setPrefHeight(50);
 
+        Button3Handler button3Handler = new Button3Handler(stage);
         Button button3 = new Button("Кнопка 3");
+        button3.setOnAction(button3Handler);
         button3.setPrefWidth(250);
         button3.setPrefHeight(50);
 
@@ -96,5 +88,25 @@ VBox (вертикальный контейнер) располагает доч
 * размещены один под другим, занимая всю доступную вертикальную область. В VBox все элементы имеют одинаковую ширину,
 * которая равна ширине самого широкого элемента в контейнере. Высота каждого элемента в VBox зависит от его размера
 * и высоты контейнера.
- */
+
+1. GridPane: Используется для размещения элементов в виде сетки с ячейками.
+
+2. HBox: Используется для размещения элементов горизонтально, один за другим.
+
+3. VBox: Используется для размещения элементов вертикально, один под другим.
+
+4. BorderPane: Используется для размещения элементов на краях (верх, низ, лево, право) и в центре.
+
+5. StackPane: Используется для размещения элементов один над другим (в стеке).
+
+6. AnchorPane: Используется для указания расположения элементов относительно границ родительского контейнера или других элементов.
+
+7. FlowPane: Используется для размещения элементов по порядку, автоматически перенося их на новую строку при необходимости.
+
+8. TilePane: Используется для размещения элементов в виде плитки, автоматически заполняя ими доступное пространство.
+
+9. ScrollPane: Используется для размещения содержимого, которое превышает размеры окна, и добавляет полосы прокрутки
+* для доступа к скрытой информации.
+
+ * */
 
