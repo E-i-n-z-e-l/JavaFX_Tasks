@@ -40,6 +40,12 @@ public class Button2Handler implements EventHandler<ActionEvent> {
             primaryStage.show(); // Показываем исходное окно после закрытия нового окна
         });
 
+        // Обработчик событий для нового окна. Если новое окно закроют не по кнопке, старое окно перестанет быть невидимым.
+        newStage.setOnCloseRequest(e -> {
+            primaryStage.setOpacity(1);
+            primaryStage.show();
+        });
+
         gridPane.getChildren().addAll(closeButton);
 
         // Создаем сцену и устанавливаем контент в новое окно
