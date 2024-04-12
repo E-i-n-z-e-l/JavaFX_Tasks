@@ -12,6 +12,7 @@ import java.util.Objects;
 import Button.Button2Handler;
 import Button.Button3Handler;
 import Button.Button4Handler;
+import Button.Button5Handler;
 import tabs.NewTab;
 
 public class Main extends Application {
@@ -51,9 +52,16 @@ public class Main extends Application {
         button4.setPrefWidth(250);
         button4.setPrefHeight(50);
 
+        Button5Handler button5Handler = new Button5Handler(stage);
         Button button5 = new Button("Кнопка 5");
+        button5.setOnAction(button5Handler);
         button5.setPrefWidth(250);
         button5.setPrefHeight(50);
+
+
+        Button button6 = new Button("Кнопка 6");
+        button6.setPrefWidth(250);
+        button6.setPrefHeight(50);
 
         root.add(button1, 0, 0);
         root.add(button2, 1, 0);
@@ -61,7 +69,7 @@ public class Main extends Application {
         root.add(button4, 3, 0);
         root.add(button5, 4, 0);
         root.add(tabPane, 0, 1);
-
+        root.add(button6, 4, 1);
 
         Scene scene = new Scene(root, 1300, 850);
         scene.getStylesheets().add(getClass().getResource("css/styles.css").toExternalForm());
