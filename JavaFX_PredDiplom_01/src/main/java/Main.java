@@ -4,8 +4,10 @@ import buttons.mainMenu.buttonsMenu.ButtonSymbolism;
 import buttons.mainMenu.buttonsMenu.ButtonsPhotos;
 import buttons.mainMenu.logicsMenu.ButtonHumansHandler;
 import buttons.mainMenu.logicsMenu.ButtonPhotosHandler;
+import buttons.mainMenu.logicsMenu.ButtonSymbolismHandler;
 import buttons.mainMenu.tabs.tabHumans;
 import buttons.mainMenu.tabs.tabPhotos;
+import buttons.mainMenu.tabs.tabSymbolism;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -45,8 +47,15 @@ public class Main extends Application {
         tabPaneHuman.setLayoutY(140);
         ButtonHumansHandler handlerHuman = new ButtonHumansHandler(tabPaneHuman, tabHumans);
         buttonHuman.setOnAction(handlerHuman);
+
         // Создание кнопки "Символика";
         Button buttonSymbolism = ButtonSymbolism.buttonSymbolism();
+        tabSymbolism tubSymbolism = new tabSymbolism();
+        TabPane tabPaneSymbolism = new TabPane();
+        tabPaneSymbolism.setLayoutX(360);
+        tabPaneSymbolism.setLayoutY(140);
+        ButtonSymbolismHandler handlerSymbolism = new ButtonSymbolismHandler(tabPaneSymbolism, tubSymbolism);
+        buttonSymbolism.setOnAction(handlerSymbolism);
 
         // Создание кнопки "Ангарск в фотографиях";
         Button buttonPhotos = ButtonsPhotos.buttonPhotos();
@@ -69,6 +78,7 @@ public class Main extends Application {
 
         root.getChildren().add(tabPaneHuman);
         root.getChildren().add(tabPanePhotos);
+        root.getChildren().add(tabPaneSymbolism);
     }
 }
 
