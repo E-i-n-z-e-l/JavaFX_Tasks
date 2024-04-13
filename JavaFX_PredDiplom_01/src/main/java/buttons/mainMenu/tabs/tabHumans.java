@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 
 public class tabHumans {
     public static Tab tabHumans() {
-        Tab newTab = new Tab("");
+        Tab newTab = new Tab();
 
         Button button1 = new Button("Почетные граждане");
         button1.setPrefSize(280, 20);

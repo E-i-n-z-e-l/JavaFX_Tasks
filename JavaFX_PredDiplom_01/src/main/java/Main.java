@@ -3,7 +3,9 @@ import buttons.mainMenu.buttonsMenu.ButtonSongs;
 import buttons.mainMenu.buttonsMenu.ButtonSymbolism;
 import buttons.mainMenu.buttonsMenu.ButtonsPhotos;
 import buttons.mainMenu.logicsMenu.ButtonHumansHandler;
+import buttons.mainMenu.logicsMenu.ButtonPhotosHandler;
 import buttons.mainMenu.tabs.tabHumans;
+import buttons.mainMenu.tabs.tabPhotos;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -38,16 +40,22 @@ public class Main extends Application {
         // Создание кнопки "Ангарчане";________________________________________________________________________________
         Button buttonHuman = ButtonHuman.buttonHuman();
         tabHumans tabHumans = new tabHumans();
-        TabPane tabPane = new TabPane(); // Создаем TabPane;
-        tabPane.setLayoutX(60);
-        tabPane.setLayoutY(140);
-        ButtonHumansHandler handler = new ButtonHumansHandler(tabPane, tabHumans);
-        buttonHuman.setOnAction(handler);
+        TabPane tabPaneHuman = new TabPane(); // Создаем TabPane;
+        tabPaneHuman.setLayoutX(60);
+        tabPaneHuman.setLayoutY(140);
+        ButtonHumansHandler handlerHuman = new ButtonHumansHandler(tabPaneHuman, tabHumans);
+        buttonHuman.setOnAction(handlerHuman);
         // Создание кнопки "Символика";
         Button buttonSymbolism = ButtonSymbolism.buttonSymbolism();
 
         // Создание кнопки "Ангарск в фотографиях";
         Button buttonPhotos = ButtonsPhotos.buttonPhotos();
+        tabPhotos tabPhotos = new tabPhotos();
+        TabPane tabPanePhotos = new TabPane();
+        tabPanePhotos.setLayoutX(660);
+        tabPanePhotos.setLayoutY(140);
+        ButtonPhotosHandler handlerPhoto = new ButtonPhotosHandler(tabPanePhotos, tabPhotos);
+        buttonPhotos.setOnAction(handlerPhoto);
 
         // Создание кнопки "Песни о городе";
         Button buttonSongs = ButtonSongs.buttonSongs();
@@ -59,7 +67,8 @@ public class Main extends Application {
         root.getChildren().add(buttonSymbolism);
         root.getChildren().add(buttonSongs);
 
-        root.getChildren().add(tabPane);
+        root.getChildren().add(tabPaneHuman);
+        root.getChildren().add(tabPanePhotos);
     }
 }
 
