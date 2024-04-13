@@ -11,7 +11,7 @@ public class ButtonHuman {
         button.setLayoutY(60);
         button.setText("Ангарчане");
         button.setStyle("-fx-font-family: \"Times New Roman\"; " + // задает семейство шрифта текста кнопки;
-                "-fx-font-size: 14pt; " + // задает размер шрифта текста кнопки;
+                "-fx-font-size: 18pt; " + // задает размер шрифта текста кнопки;
                 "-fx-font-weight: bold; " + // задает насыщенность шрифта (жирный);
                 "-fx-font-style: italic; " + // задает стиль шрифта (курсив);
                 "-fx-text-fill: black; " + // устанавливает цвет текста кнопки как черный;
@@ -19,7 +19,7 @@ public class ButtonHuman {
                 "-fx-background-radius: 0; " + // устанавливает радиус скругления углов фона кнопки как 0 пикселей;
                 "-fx-border-width: 3px; " + // устанавливает ширину границы кнопки как 3 пикселя;
                 "-fx-border-color: black; "); // устанавливает цвет границы кнопки как черный;
-        button.setPrefSize(250,70);
+        button.setPrefSize(280,90);
         button.setAlignment(Pos.CENTER); // Выравнивает текст на кнопке по центру;
         button.setContentDisplay(ContentDisplay.RIGHT);
         button.setWrapText(false); // Запрет на перенос строк в тексте кнопки;

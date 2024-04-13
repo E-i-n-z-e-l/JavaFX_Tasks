@@ -2,10 +2,13 @@ import buttons.mainMenu.buttonsMenu.ButtonHuman;
 import buttons.mainMenu.buttonsMenu.ButtonSongs;
 import buttons.mainMenu.buttonsMenu.ButtonSymbolism;
 import buttons.mainMenu.buttonsMenu.ButtonsPhotos;
+import buttons.mainMenu.logicsMenu.ButtonHumansHandler;
+import buttons.mainMenu.tabs.tabHumans;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -34,7 +37,12 @@ public class Main extends Application {
         // Создание кнопок;
         // Создание кнопки "Ангарчане";________________________________________________________________________________
         Button buttonHuman = ButtonHuman.buttonHuman();
-
+        tabHumans tabHumans = new tabHumans();
+        TabPane tabPane = new TabPane(); // Создаем TabPane;
+        tabPane.setLayoutX(60);
+        tabPane.setLayoutY(140);
+        ButtonHumansHandler handler = new ButtonHumansHandler(tabPane, tabHumans);
+        buttonHuman.setOnAction(handler);
         // Создание кнопки "Символика";
         Button buttonSymbolism = ButtonSymbolism.buttonSymbolism();
 
@@ -50,6 +58,8 @@ public class Main extends Application {
         root.getChildren().add(buttonHuman);
         root.getChildren().add(buttonSymbolism);
         root.getChildren().add(buttonSongs);
+
+        root.getChildren().add(tabPane);
     }
 }
 
