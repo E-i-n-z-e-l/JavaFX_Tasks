@@ -15,6 +15,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+/**
+ * Создание и редактирование кнопок.
+ */
 public class Main extends Application {
     public static void main(String[] args) {
         Application.launch(args);
